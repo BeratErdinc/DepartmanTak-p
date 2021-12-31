@@ -1,0 +1,30 @@
+﻿@model Proje2.Models.personel
+@{
+    ViewData["Title"] = "YeniPersonel";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+
+
+<form class="form-group" method="post">
+
+    <b>Personel Adı</b>
+    @Html.TextAreaFor(x => x.Ad, new { @class = "form-control" })
+    <br />
+    <b>Personel Soyadı </b>
+    @Html.TextAreaFor(x => x.Soyad, new { @class = "form-control" })
+    <br />
+    <b>Personel Sehri</b>
+    @Html.TextAreaFor(x => x.Sehir, new { @class = "form-control" })
+    <br />
+    <b>Personel Sehri</b>
+    @Html.DropDownListFor(x => x.birim.BirimId,(List<SelectListItem>)ViewBag.dgr,new { @class = "form-control" })
+
+
+    <button class="btn btn-info">Personel Ekle</button>
+
+
+
+
+</form>
+

@@ -1,0 +1,22 @@
+﻿@model Proje2.Models.Birim
+
+@{
+    ViewData["Title"] = "DepartmanGetir";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+@using (Html.BeginForm("BirimGüncelle", "Defalut", FormMethod.Post))
+{
+
+
+    <b>Birim ID</b>
+    @Html.TextAreaFor(x => x.BirimId, new { @class = "form-control" })
+    <br />
+
+    <b>Birim Adı</b>
+    @Html.TextAreaFor(x => x.Ad, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info" style="background-color:cyan">Birim Güncelle</button>
+
+}
+

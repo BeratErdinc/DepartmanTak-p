@@ -1,0 +1,36 @@
+﻿@using Proje2.Models
+@model List<personel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+
+
+<table class="table table-bordered">
+    <tr>
+        
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Sehir</th>
+        <th>Birim Ad</th>
+        
+
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            
+            <td>@x.Ad</td>
+            <td>@x.Soyad</td>
+            <td>@x.Sehir</td>
+            <td>@x.birim.Ad</td>
+            <td><a href="/Personel/PersonelSil/@x.PersonelId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Personel/PersonelGetir/@x.PersonelId" class="btn btn-success">Güncelle</a></td>
+           
+        </tr>
+
+    }
+</table>
+<a href="/Personel/YeniPersonel" class="btn btn-primary">Personel Ekle</a>

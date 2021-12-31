@@ -1,0 +1,26 @@
+﻿@model Proje2.Models.personel
+@{
+    ViewData["Title"] = "PersonelGetir";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+@using (Html.BeginForm("PersonelGüncelle", "Personel", FormMethod.Post))
+{
+    <b>Personel ID</b>
+    @Html.TextAreaFor(x => x.PersonelId, new { @class = "form-control" })
+    <br />
+    <b>Personel Adı</b>
+    @Html.TextAreaFor(x => x.Ad, new { @class = "form-control" })
+    <br />
+    <b>Personel Soyadı </b>
+    @Html.TextAreaFor(x => x.Soyad, new { @class = "form-control" })
+    <br />
+    <b>Personel Sehri</b>
+    @Html.TextAreaFor(x => x.Sehir, new { @class = "form-control" })
+    <br />
+    
+   
+    <button class="btn btn-info" style="background-color:cyan">Birim Güncelle</button>
+}
+
+

@@ -1,0 +1,31 @@
+﻿@using Proje2.Models
+@model List<personel>
+@{
+    ViewData["Title"] = "BirimDetay";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+<br />
+<div>@ViewBag.brm Departmanı </div>
+<tr>
+    <table class="table table-bordered">
+
+
+       
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Sehir</th>
+</tr>
+@foreach (var x in Model)
+{
+    <tr>
+        
+        <td>@x.Ad</td>
+        <td>@x.Soyad</td>
+        <td>@x.Sehir</td>
+
+
+    </tr>
+
+}
+</table>
+

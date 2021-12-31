@@ -1,0 +1,76 @@
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+
+namespace Proje2.Migrations
+{
+    public partial class satıs11 : Migration
+    {
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.CreateTable(
+                name: "Admins",
+                columns: table => new
+                {
+                    AdminID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Kullanıcı = table.Column<string>(type: "Varchar(10)", nullable: true),
+                    Şifre = table.Column<string>(type: "Varchar(10)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Admins", x => x.AdminID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Birims",
+                columns: table => new
+                {
+                    BirimId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Ad = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Birims", x => x.BirimId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Personels",
+                columns: table => new
+                {
+                    PersonelId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Ad = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Soyad = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Sehir = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BirimId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Personels", x => x.PersonelId);
+                    table.ForeignKey(
+                        name: "FK_Personels_Birims_BirimId",
+                        column: x => x.BirimId,
+                        principalTable: "Birims",
+                        principalColumn: "BirimId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Personels_BirimId",
+                table: "Personels",
+                column: "BirimId");
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "Admins");
+
+            migrationBuilder.DropTable(
+                name: "Personels");
+
+            migrationBuilder.DropTable(
+                name: "Birims");
+        }
+    }
+}
